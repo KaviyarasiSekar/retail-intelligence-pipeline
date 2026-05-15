@@ -1,0 +1,66 @@
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt snapshot
+06:42:18  Running with dbt=1.11.8
+06:42:19  Registered adapter: snowflake=1.11.4
+06:42:19  Found 9 models, 13 data tests, 1 snapshot, 5 sources, 523 macros
+06:42:19  
+06:42:19  Concurrency: 4 threads (target='dev')
+06:42:19  
+06:42:21  1 of 1 START snapshot snapshots.customer_snapshot .............................. [RUN]
+06:42:23  1 of 1 OK snapshotted snapshots.customer_snapshot .............................. [SUCCESS 500 in 2.11s]
+06:42:24  
+06:42:24  Finished running 1 snapshot in 0 hours 0 minutes and 4.43 seconds (4.43s).
+06:42:24  
+06:42:24  Completed successfully
+06:42:24  
+06:42:24  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt snapshot
+06:49:48  Running with dbt=1.11.8
+06:49:49  Registered adapter: snowflake=1.11.4
+06:49:49  Found 9 models, 13 data tests, 1 snapshot, 5 sources, 523 macros
+06:49:49  
+06:49:49  Concurrency: 4 threads (target='dev')
+06:49:49  
+06:49:51  1 of 1 START snapshot snapshots.customer_snapshot .............................. [RUN]
+06:49:56  1 of 1 OK snapshotted snapshots.customer_snapshot .............................. [SUCCESS 1 in 4.04s]
+06:49:56  
+06:49:56  Finished running 1 snapshot in 0 hours 0 minutes and 6.67 seconds (6.67s).
+06:49:56  
+06:49:56  Completed successfully
+06:49:56  
+06:49:56  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=1
+
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>UPDATE RETAIL_DB.RAW.CUSTOMERS SET email = 'updated_kavi_email@example.com' WHERE customer_id = 1;
++------------------------+-------------------------------------+                
+| number of rows updated | number of multi-joined rows updated |
+|------------------------+-------------------------------------|
+|                      1 |                                   0 |
++------------------------+-------------------------------------+
+1 Row(s) produced. Time Elapsed: 0.534s
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>SELECT * FROM RETAIL_DB.SNAPSHOTS.CUSTOMER_SNAPSHOT WHERE customer_id = 1;
++-------------+--------------------------------+---------------+---------+-------------+-------------------------------+----------------------------------+-------------------------+-------------------------+-------------------------+
+| CUSTOMER_ID | EMAIL                          | FULL_NAME     | COUNTRY | CITY        | CREATED_AT                    | DBT_SCD_ID                       | DBT_UPDATED_AT          | DBT_VALID_FROM          | DBT_VALID_TO            |
+|-------------+--------------------------------+---------------+---------+-------------+-------------------------------+----------------------------------+-------------------------+-------------------------+-------------------------|
+|           1 | updated_kavi_email@example.com | Megan Mcclain | BT      | Johnsonland | 2025-07-30 20:38:45.000 +0000 | d341d6a04a5f8545be1f2f5829a53332 | 2026-05-14 06:49:52.762 | 2026-05-14 06:49:52.762 | NULL                    |
+|           1 | figueroajohn@example.org       | Megan Mcclain | BT      | Johnsonland | 2025-07-30 20:38:45.000 +0000 | 4d535bf3c5d725e31bed3440fbc3981d | 2026-05-14 06:42:22.321 | 2026-05-14 06:42:22.321 | 2026-05-14 06:49:52.762 |
++-------------+--------------------------------+---------------+---------+-------------+-------------------------------+----------------------------------+-------------------------+-------------------------+-------------------------+
+2 Row(s) produced. Time Elapsed: 1.290s
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>
+
+
+
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>SELECT COUNT(*) FROM RETAIL_DB.DBT_GOLD.DIM_CUSTOMER_CLV;
++----------+                                                                    
+| COUNT(*) |
+|----------|
+|      500 |
++----------+
+1 Row(s) produced. Time Elapsed: 0.157s
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>SELECT COUNT(*) FROM RETAIL_DB.SNAPSHOTS.CUSTOMER_SNAPSHOT;
++----------+                                                                    
+| COUNT(*) |
+|----------|
+|      501 |
++----------+
+1 Row(s) produced. Time Elapsed: 0.134s
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>

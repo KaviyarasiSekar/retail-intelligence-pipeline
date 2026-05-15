@@ -28,12 +28,3 @@
 | my_local_stage/reviews/reviews.csv | LOADED |        3704 |        3704 |           1 |           0 | NULL        |             NULL |                  NULL | NULL                    |
 +------------------------------------+--------+-------------+-------------+-------------+-------------+-------------+------------------+-----------------------+-------------------------+
 1 Row(s) produced. Time Elapsed: 1.054s
-Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>SELECT COUNT(*) FR
-                                   OM RETAIL_DB.RAW.C
-                                   USTOMERS;
-                                                     +----------+               
-| COUNT(*) |
-|----------|
-|      500 |
-+----------+
-1 Row(s) produced. Time Elapsed: 0.195s

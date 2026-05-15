@@ -45,3 +45,6 @@ The dbt layer has been implemented and validated successfully.
 | Silver       | DBT_SILVER       | Views           |
 | Intermediate | DBT_INTERMEDIATE | Views           |
 | Gold         | DBT_GOLD         | Tables          |
+
+
+

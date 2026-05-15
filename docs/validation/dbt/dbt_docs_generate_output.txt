@@ -1,0 +1,21 @@
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt docs generate
+06:56:51  Running with dbt=1.11.8
+06:56:52  Registered adapter: snowflake=1.11.4
+06:56:52  Found 9 models, 13 data tests, 1 snapshot, 5 sources, 523 macros
+06:56:52  
+06:56:52  Concurrency: 4 threads (target='dev')
+06:56:52  
+06:56:55  Building catalog
+06:57:03  Catalog written to /Users/kaviyarasisankarapandiyan/Downloads/2026Project/retail-intelligence-pipeline/dbt/target/catalog.json
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt docs serve
+06:57:17  Running with dbt=1.11.8
+Serving docs at 8080
+To access from your browser, navigate to: http://localhost:8080
+
+
+
+Press Ctrl+C to exit.
+127.0.0.1 - - [14/May/2026 07:57:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [14/May/2026 07:57:18] "GET /manifest.json?cb=1778741838730 HTTP/1.1" 200 -
+127.0.0.1 - - [14/May/2026 07:57:18] "GET /catalog.json?cb=1778741838730 HTTP/1.1" 200 -

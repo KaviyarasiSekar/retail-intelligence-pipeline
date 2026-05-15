@@ -6,7 +6,18 @@ sources:
     schema: RAW
     tables:
       - name: customers
+
       - name: orders
+        config:
+          loaded_at_field: order_ts
+          freshness:
+            warn_after:
+              count: 24
+              period: hour
+            error_after:
+              count: 48
+              period: hour
+
       - name: order_items
       - name: products
       - name: reviews

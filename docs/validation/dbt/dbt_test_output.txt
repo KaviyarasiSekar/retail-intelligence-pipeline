@@ -1,0 +1,87 @@
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt test
+05:28:05  Running with dbt=1.11.8
+05:28:05  Registered adapter: snowflake=1.11.4
+05:28:06  Found 8 models, 13 data tests, 5 sources, 523 macros
+05:28:06  
+05:28:06  Concurrency: 4 threads (target='dev')
+05:28:06  
+05:28:07  1 of 13 START test not_null_stg_customers_customer_id .......................... [RUN]
+05:28:07  2 of 13 START test not_null_stg_order_items_order_item_id ...................... [RUN]
+05:28:07  3 of 13 START test not_null_stg_orders_order_id ................................ [RUN]
+05:28:07  4 of 13 START test not_null_stg_products_product_id ............................ [RUN]
+05:28:07  2 of 13 PASS not_null_stg_order_items_order_item_id ............................ [PASS in 0.29s]
+05:28:07  1 of 13 PASS not_null_stg_customers_customer_id ................................ [PASS in 0.29s]
+05:28:07  5 of 13 START test not_null_stg_reviews_review_id .............................. [RUN]
+05:28:07  6 of 13 START test relationships_stg_order_items_order_id__order_id__ref_stg_orders_  [RUN]
+05:28:07  3 of 13 PASS not_null_stg_orders_order_id ...................................... [PASS in 0.46s]
+05:28:07  7 of 13 START test relationships_stg_order_items_product_id__product_id__ref_stg_products_  [RUN]
+05:28:07  6 of 13 PASS relationships_stg_order_items_order_id__order_id__ref_stg_orders_ . [PASS in 0.24s]
+05:28:07  8 of 13 START test relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [RUN]
+05:28:07  5 of 13 PASS not_null_stg_reviews_review_id .................................... [PASS in 0.26s]
+05:28:07  9 of 13 START test unique_stg_customers_customer_id ............................ [RUN]
+05:28:07  9 of 13 PASS unique_stg_customers_customer_id .................................. [PASS in 0.16s]
+05:28:07  10 of 13 START test unique_stg_order_items_order_item_id ....................... [RUN]
+05:28:07  7 of 13 PASS relationships_stg_order_items_product_id__product_id__ref_stg_products_  [PASS in 0.27s]
+05:28:07  11 of 13 START test unique_stg_orders_order_id ................................. [RUN]
+05:28:07  8 of 13 PASS relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [PASS in 0.23s]
+05:28:07  12 of 13 START test unique_stg_products_product_id ............................. [RUN]
+05:28:07  4 of 13 PASS not_null_stg_products_product_id .................................. [PASS in 0.80s]
+05:28:07  13 of 13 START test unique_stg_reviews_review_id ............................... [RUN]
+05:28:07  11 of 13 PASS unique_stg_orders_order_id ....................................... [PASS in 0.17s]
+05:28:07  12 of 13 PASS unique_stg_products_product_id ................................... [PASS in 0.17s]
+05:28:08  10 of 13 PASS unique_stg_order_items_order_item_id ............................. [PASS in 0.31s]
+05:28:08  13 of 13 PASS unique_stg_reviews_review_id ..................................... [PASS in 0.31s]
+05:28:08  
+05:28:08  Finished running 13 data tests in 0 hours 0 minutes and 2.75 seconds (2.75s).
+05:28:08  
+05:28:08  Completed successfully
+05:28:08  
+05:28:08  Done. PASS=13 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=13
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % 
+
+
+
+
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air retail-intelligence-pipeline % cd dbt
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt test
+07:01:28  Running with dbt=1.11.8
+07:01:28  Registered adapter: snowflake=1.11.4
+07:01:29  Found 9 models, 13 data tests, 1 snapshot, 5 sources, 523 macros
+07:01:29  
+07:01:29  Concurrency: 4 threads (target='dev')
+07:01:29  
+07:01:31  1 of 13 START test not_null_stg_customers_customer_id .......................... [RUN]
+07:01:31  2 of 13 START test not_null_stg_order_items_order_item_id ...................... [RUN]
+07:01:31  3 of 13 START test not_null_stg_orders_order_id ................................ [RUN]
+07:01:31  4 of 13 START test not_null_stg_products_product_id ............................ [RUN]
+07:01:32  1 of 13 PASS not_null_stg_customers_customer_id ................................ [PASS in 0.78s]
+07:01:32  2 of 13 PASS not_null_stg_order_items_order_item_id ............................ [PASS in 0.78s]
+07:01:32  5 of 13 START test not_null_stg_reviews_review_id .............................. [RUN]
+07:01:32  6 of 13 START test relationships_stg_order_items_order_id__order_id__ref_stg_orders_  [RUN]
+07:01:32  3 of 13 PASS not_null_stg_orders_order_id ...................................... [PASS in 0.85s]
+07:01:32  7 of 13 START test relationships_stg_order_items_product_id__product_id__ref_stg_products_  [RUN]
+07:01:33  7 of 13 PASS relationships_stg_order_items_product_id__product_id__ref_stg_products_  [PASS in 0.71s]
+07:01:33  8 of 13 START test relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [RUN]
+07:01:33  6 of 13 PASS relationships_stg_order_items_order_id__order_id__ref_stg_orders_ . [PASS in 0.86s]
+07:01:33  9 of 13 START test unique_stg_customers_customer_id ............................ [RUN]
+07:01:33  4 of 13 PASS not_null_stg_products_product_id .................................. [PASS in 1.67s]
+07:01:33  10 of 13 START test unique_stg_order_items_order_item_id ....................... [RUN]
+07:01:33  9 of 13 PASS unique_stg_customers_customer_id .................................. [PASS in 0.20s]
+07:01:33  11 of 13 START test unique_stg_orders_order_id ................................. [RUN]
+07:01:33  5 of 13 PASS not_null_stg_reviews_review_id .................................... [PASS in 1.13s]
+07:01:33  12 of 13 START test unique_stg_products_product_id ............................. [RUN]
+07:01:33  8 of 13 PASS relationships_stg_orders_customer_id__customer_id__ref_stg_customers_  [PASS in 0.36s]
+07:01:33  13 of 13 START test unique_stg_reviews_review_id ............................... [RUN]
+07:01:33  10 of 13 PASS unique_stg_order_items_order_item_id ............................. [PASS in 0.33s]
+07:01:33  11 of 13 PASS unique_stg_orders_order_id ....................................... [PASS in 0.18s]
+07:01:33  12 of 13 PASS unique_stg_products_product_id ................................... [PASS in 0.29s]
+07:01:34  13 of 13 PASS unique_stg_reviews_review_id ..................................... [PASS in 0.87s]
+07:01:35  
+07:01:35  Finished running 13 data tests in 0 hours 0 minutes and 6.55 seconds (6.55s).
+07:01:35  
+07:01:35  Completed successfully
+07:01:35  
+07:01:35  Done. PASS=13 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=13
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % 

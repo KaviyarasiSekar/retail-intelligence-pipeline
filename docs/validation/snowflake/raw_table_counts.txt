@@ -1,0 +1,25 @@
+                                                                
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>SELECT 'CUSTOMERS' AS table_name, COUNT(*) AS row_count FROM RETAIL_DB.RAW.CUSTOMERS
+                                   UNION ALL
+                                   SELECT 'PRODUCTS', COUNT(*) FROM RETAIL_DB.RAW.PRODUCTS
+                                   UNION ALL
+                                   SELECT 'ORDERS', COUNT(*) FROM RETAIL_DB.RAW.ORDERS
+                                   UNION ALL
+                                   SELECT 'ORDER_ITEMS', COUNT(*) FROM RETAIL_DB.RAW.ORDER_ITEMS
+                                   UNION ALL
+                                   SELECT 'REVIEWS', COUNT(*) FROM RETAIL_DB.RAW.REVIEWS;
+
+
+
++-------------+-----------+                                                     
+| TABLE_NAME  | ROW_COUNT |
+|-------------+-----------|
+| CUSTOMERS   |       500 |
+| PRODUCTS    |       200 |
+| ORDERS      |      3000 |
+| ORDER_ITEMS |     10500 |
+| REVIEWS     |      3704 |
++-------------+-----------+
+5 Row(s) produced. Time Elapsed: 0.866s
+
+Kaviyarasi#RETAIL_WH@RETAIL_DB.RAW>

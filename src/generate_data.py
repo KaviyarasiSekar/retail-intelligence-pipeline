@@ -1,8 +1,9 @@
 import csv
 import os
 import random
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timedelta, timezone, date
 from faker import Faker
+import argparse
 
 SEED = 42
 
@@ -15,6 +16,11 @@ REVIEW_RATE = 0.35  # % of order_items that get a review
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "data")
 
 
+def entity_dir(entity: str, run_date: str) -> str:
+    # run_date must be "YYYY-MM-DD"
+    return os.path.join(OUTPUT_DIR, "landing", entity, run_date)
+
+
 def _ensure_dir(path: str) -> None:
     os.makedirs(path, exist_ok=True)
 
@@ -23,15 +29,36 @@ def _utc_iso(dt: datetime) -> str:
     return dt.astimezone(timezone.utc).replace(microsecond=0).isoformat()
 
 
+def parse_args() -> argparse.Namespace:
+    p = argparse.ArgumentParser()
+    p.add_argument(
+        "--run-date",
+        default=date.today().isoformat(),
+        help="Partition date for landing output, format YYYY-MM-DD (default: today)"
+    )
+    return p.parse_args()
+
+
 def main() -> None:
     random.seed(SEED)
     fake = Faker()
     Faker.seed(SEED)
 
+    args = parse_args()
+    run_date = args.run_date
+
     _ensure_dir(OUTPUT_DIR)
 
+    customers_dir = entity_dir("customers", run_date)
+    products_dir = entity_dir("products", run_date)
+    orders_dir = entity_dir("orders", run_date)
+    order_items_dir = entity_dir("order_items", run_date)
+    reviews_dir = entity_dir("reviews", run_date)
+
+    for d in [customers_dir, products_dir, orders_dir, order_items_dir, reviews_dir]:
+        _ensure_dir(d)
     # ---------- customers ----------
-    customers_path = os.path.join(OUTPUT_DIR, "customers.csv")
+    customers_path = os.path.join(customers_dir, "customers.csv")
     customers = []
     for i in range(1, N_CUSTOMERS + 1):
         created_at = fake.date_time_between(
@@ -53,7 +80,7 @@ def main() -> None:
         w.writerows(customers)
 
     # ---------- products ----------
-    products_path = os.path.join(OUTPUT_DIR, "products.csv")
+    products_path = os.path.join(products_dir, "products.csv")
     categories = ["Electronics", "Home",
                   "Office", "Grocery", "Fashion", "Sports"]
     products = []
@@ -77,9 +104,8 @@ def main() -> None:
         w.writerows(products)
 
     # ---------- orders + order_items ----------
-    orders_path = os.path.join(OUTPUT_DIR, "orders.csv")
-    order_items_path = os.path.join(OUTPUT_DIR, "order_items.csv")
-
+    orders_path = os.path.join(orders_dir, "orders.csv")
+    order_items_path = os.path.join(order_items_dir, "order_items.csv")
     now = datetime.now(timezone.utc)
     order_statuses = ["PLACED", "PAID", "SHIPPED",
                       "DELIVERED", "CANCELLED", "RETURNED"]
@@ -145,7 +171,7 @@ def main() -> None:
         w.writerows(order_items)
 
     # ---------- reviews (for later sentiment / data quality examples) ----------
-    reviews_path = os.path.join(OUTPUT_DIR, "reviews.csv")
+    reviews_path = os.path.join(reviews_dir, "reviews.csv")
     reviews = []
     review_id = 1
 

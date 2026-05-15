@@ -1,3 +1,43 @@
-venv
+# =========================
+# Virtual Environments
+# =========================
 venv/
 .venv/
+
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# =========================
+# dbt
+# =========================
+target/
+dbt_packages/
+logs/
+*.log
+dbt.log
+partial_parse.msgpack
+perf_info.json
+
+# =========================
+# Secrets / Environment
+# =========================
+.env
+*.env
+profiles.yml
+
+# =========================
+# macOS
+# =========================
+.DS_Store
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/

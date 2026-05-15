@@ -24,6 +24,7 @@ select
     co.first_order_date,
     co.most_recent_order_date,
     co.number_of_orders,
-    co.lifetime_value
+    co.lifetime_value,
+    {{ safe_divide('co.lifetime_value', 'co.number_of_orders') }} as avg_order_value -- macro
 from customers c
 left join customer_orders co on c.customer_id = co.customer_id

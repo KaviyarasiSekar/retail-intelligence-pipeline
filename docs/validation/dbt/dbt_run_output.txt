@@ -1,0 +1,67 @@
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt run
+05:27:51  Running with dbt=1.11.8
+05:27:52  Registered adapter: snowflake=1.11.4
+05:27:53  Found 8 models, 13 data tests, 5 sources, 523 macros
+05:27:53  
+05:27:53  Concurrency: 4 threads (target='dev')
+05:27:53  
+05:27:54  1 of 8 START sql view model DBT_silver.stg_customers ........................... [RUN]
+05:27:54  2 of 8 START sql view model DBT_silver.stg_order_items ......................... [RUN]
+05:27:54  3 of 8 START sql view model DBT_silver.stg_orders .............................. [RUN]
+05:27:54  4 of 8 START sql view model DBT_silver.stg_products ............................ [RUN]
+05:27:54  1 of 8 OK created sql view model DBT_silver.stg_customers ...................... [SUCCESS 1 in 0.43s]
+05:27:54  5 of 8 START sql view model DBT_silver.stg_reviews ............................. [RUN]
+05:27:54  2 of 8 OK created sql view model DBT_silver.stg_order_items .................... [SUCCESS 1 in 0.44s]
+05:27:55  3 of 8 OK created sql view model DBT_silver.stg_orders ......................... [SUCCESS 1 in 0.56s]
+05:27:55  5 of 8 OK created sql view model DBT_silver.stg_reviews ........................ [SUCCESS 1 in 0.37s]
+05:27:55  4 of 8 OK created sql view model DBT_silver.stg_products ....................... [SUCCESS 1 in 0.81s]
+05:27:55  6 of 8 START sql view model DBT_intermediate.int_order_items ................... [RUN]
+05:27:55  6 of 8 OK created sql view model DBT_intermediate.int_order_items .............. [SUCCESS 1 in 0.57s]
+05:27:55  7 of 8 START sql table model DBT_gold.fct_sales ................................ [RUN]
+05:27:57  7 of 8 OK created sql table model DBT_gold.fct_sales ........................... [SUCCESS 3000 in 1.87s]
+05:27:57  8 of 8 START sql table model DBT_gold.dim_customers ............................ [RUN]
+05:27:58  8 of 8 OK created sql table model DBT_gold.dim_customers ....................... [SUCCESS 500 in 0.94s]
+05:27:59  
+05:27:59  Finished running 2 table models, 6 view models in 0 hours 0 minutes and 6.18 seconds (6.18s).
+05:27:59  
+05:27:59  Completed successfully
+05:27:59  
+05:27:59  Done. PASS=8 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=8
+
+
+
+
+
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt run
+06:59:35  Running with dbt=1.11.8
+06:59:35  Registered adapter: snowflake=1.11.4
+06:59:35  Found 9 models, 13 data tests, 1 snapshot, 5 sources, 523 macros
+06:59:35  
+06:59:35  Concurrency: 4 threads (target='dev')
+06:59:35  
+06:59:38  1 of 9 START sql view model DBT_silver.stg_customers ........................... [RUN]
+06:59:38  2 of 9 START sql view model DBT_silver.stg_order_items ......................... [RUN]
+06:59:38  3 of 9 START sql view model DBT_silver.stg_orders .............................. [RUN]
+06:59:38  4 of 9 START sql view model DBT_silver.stg_products ............................ [RUN]
+06:59:38  1 of 9 OK created sql view model DBT_silver.stg_customers ...................... [SUCCESS 1 in 0.41s]
+06:59:38  3 of 9 OK created sql view model DBT_silver.stg_orders ......................... [SUCCESS 1 in 0.41s]
+06:59:38  2 of 9 OK created sql view model DBT_silver.stg_order_items .................... [SUCCESS 1 in 0.41s]
+06:59:38  4 of 9 OK created sql view model DBT_silver.stg_products ....................... [SUCCESS 1 in 0.41s]
+06:59:38  5 of 9 START sql view model DBT_silver.stg_reviews ............................. [RUN]
+06:59:38  6 of 9 START sql incremental model DBT_gold.fct_sales_incremental .............. [RUN]
+06:59:38  7 of 9 START sql view model DBT_intermediate.int_order_items ................... [RUN]
+06:59:39  5 of 9 OK created sql view model DBT_silver.stg_reviews ........................ [SUCCESS 1 in 0.29s]
+06:59:39  7 of 9 OK created sql view model DBT_intermediate.int_order_items .............. [SUCCESS 1 in 0.41s]
+06:59:39  8 of 9 START sql table model DBT_gold.fct_sales ................................ [RUN]
+06:59:41  8 of 9 OK created sql table model DBT_gold.fct_sales ........................... [SUCCESS 3001 in 2.10s]
+06:59:41  9 of 9 START sql table model DBT_gold.dim_customer_clv ......................... [RUN]
+06:59:41  6 of 9 OK created sql incremental model DBT_gold.fct_sales_incremental ......... [SUCCESS 0 in 2.66s]
+06:59:42  9 of 9 OK created sql table model DBT_gold.dim_customer_clv .................... [SUCCESS 500 in 0.95s]
+06:59:42  
+06:59:42  Finished running 1 incremental model, 2 table models, 6 view models in 0 hours 0 minutes and 6.85 seconds (6.85s).
+06:59:42  
+06:59:42  Completed successfully
+06:59:42  
+06:59:42  Done. PASS=9 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=9
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % 

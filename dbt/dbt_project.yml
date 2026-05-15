@@ -39,3 +39,6 @@ models:
     marts:
       +schema: gold
       +materialized: table
+seeds:
+  retail_analytics:
+    +schema: reference

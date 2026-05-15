@@ -1,0 +1,18 @@
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt parse --no-partial-parse
+11:30:53  Running with dbt=1.11.8
+11:30:54  Registered adapter: snowflake=1.11.4
+11:30:55  Performance info: /Users/kaviyarasisankarapandiyan/Downloads/2026Project/retail-intelligence-pipeline/dbt/target/perf_info.json
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % dbt source freshness --select source:raw_retail.orders
+11:30:59  Running with dbt=1.11.8
+11:31:00  Registered adapter: snowflake=1.11.4
+11:31:00  Found 9 models, 1 snapshot, 1 analysis, 1 seed, 13 data tests, 5 sources, 524 macros
+11:31:00  
+11:31:00  Concurrency: 4 threads (target='dev')
+11:31:00  
+11:31:06  Pulling freshness from warehouse metadata tables for 0 sources
+11:31:06  1 of 1 START freshness of raw_retail.orders .................................... [RUN]
+11:31:07  1 of 1 WARN freshness of raw_retail.orders ..................................... [WARN in 1.15s]
+11:31:08  
+11:31:08  Finished running 1 source in 0 hours 0 minutes and 7.84 seconds (7.84s).
+11:31:08  Done.
+(venv) kaviyarasisankarapandiyan@kaviyarasis-MacBook-Air dbt % 
