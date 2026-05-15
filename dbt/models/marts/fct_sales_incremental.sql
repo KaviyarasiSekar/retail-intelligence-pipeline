@@ -14,12 +14,13 @@ channel_mapping as(
 )
 
 select 
-    order_id,
-    customer_id,
-    placed_at,
-    order_status,
-    order_total,
+    o.order_id,
+    o.customer_id,
+    o.placed_at,
+    o.order_status,
+    o.sales_channel,
     cm.channel_group,
+    o.order_total,
     current_timestamp() as dbt_updated_at
 from orders o
 left join channel_mapping cm
