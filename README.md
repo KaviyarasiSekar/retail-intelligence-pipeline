@@ -24,7 +24,7 @@ This project uses synthetic retail data such as customers, products, orders, ord
 - dbt source freshness check
 - dbt documentation and lineage graph
 
-### Total Stack
+## Tech Stack
 
 - Snowflake
 - dbt Core
@@ -32,7 +32,7 @@ This project uses synthetic retail data such as customers, products, orders, ord
 - SQL
 - Git and GitHub
 
-### Project Architecture
+## Project Architecture
 
 This project follows a Medallion Architecture pattern.
 
@@ -119,10 +119,10 @@ The dbt layer has been implemented and validated successfully.
 | Area         | Result                             |
 | ------------ | ---------------------------------- |
 | Sources      | 5 raw Snowflake sources configured |
-| Models       | 8 dbt models built                 |
+| Models       | 9 dbt models built                 |
 | Staging      | 5 Silver views                     |
 | Intermediate | 1 intermediate view                |
-| Marts        | 2 Gold tables                      |
+| Marts        | 3 Gold models                      |
 | Tests        | 13 data quality tests passed       |
 | dbt Docs     | Generated successfully             |
 
@@ -133,6 +133,7 @@ The dbt layer has been implemented and validated successfully.
 | Silver       | DBT_SILVER       | Views           |
 | Intermediate | DBT_INTERMEDIATE | Views           |
 | Gold         | DBT_GOLD         | Tables          |
+| Snapshots    | SNAPSHOTS        | Snapshot Tables |
 
 ## dbt Features Used
 
@@ -223,7 +224,7 @@ The freshness check:
 
 ![Snapshot History](./docs/screenshots/snowflake/snapshot_scd2_history.png)
 
-### Customer CSV Mart Preview
+### Customer CLV Mart Preview
 
 ![CLV Mart](./docs/screenshots/snowflake/DBT_GOLD/mart_customer_clv_preview.png)
 
@@ -243,7 +244,7 @@ This includes:
 - manifest.json
 - catalog.json
 
-These files preserve the dbt documentation and lineage metadata after the snowflake trial expired.
+These files preserve the generated dbt documentation and lineage metadata for offline reference.
 
 ## Project Structure
 
