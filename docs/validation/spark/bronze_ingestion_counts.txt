@@ -1,0 +1,5 @@
+customers: 500
+orders: 3000
+order_items: 10500
+products: 200
+reviews: 3704
