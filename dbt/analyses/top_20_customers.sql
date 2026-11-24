@@ -1,9 +1,9 @@
 select 
     customer_id,
     full_name,
-    total_revenue,
-    total_orders
+    lifetime_value,
+    number_of_orders
 from {{ ref('mart_customer_clv') }}
-where total_revenue > 0
-order by total_revenue desc
+where lifetime_value > 0
+order by lifetime_value desc
 limit 20

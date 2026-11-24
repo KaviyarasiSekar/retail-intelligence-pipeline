@@ -31,10 +31,10 @@ The dbt layer has been implemented and validated successfully.
 | Area         | Result                             |
 | ------------ | ---------------------------------- |
 | Sources      | 5 raw Snowflake sources configured |
-| Models       | 8 dbt models built                 |
+| Models       | 9 dbt models built                 |
 | Staging      | 5 Silver views                     |
 | Intermediate | 1 intermediate view                |
-| Marts        | 2 Gold tables                      |
+| Marts        | 3 Gold models                      |
 | Tests        | 13 data quality tests passed       |
 | Docs         | dbt docs generated successfully    |
 
@@ -45,6 +45,3 @@ The dbt layer has been implemented and validated successfully.
 | Silver       | DBT_SILVER       | Views           |
 | Intermediate | DBT_INTERMEDIATE | Views           |
 | Gold         | DBT_GOLD         | Tables          |
-
-
-

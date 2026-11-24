@@ -5,5 +5,5 @@ select
     order_ts as placed_at,
     currency,
     order_total,
-    sales_channel
+    upper(trim(sales_channel)) as sales_channel
 from {{ source('raw_retail', 'orders') }}
