@@ -1,6 +1,6 @@
 # Retail Intelligence Pipeline with Snowflake and dbt
 
-This project is a retail analytics data warehouse built using Snowflake and dbt.
+This project is a retail analytics data warehouse built using PySpark, Snowflake and dbt.
 
 The goal of this project is to load raw retail data into Snowflake, transform it using dbt, apply data quality checks and create business-ready tables for analytics.
 
@@ -24,12 +24,20 @@ This project uses synthetic retail data such as customers, products, orders, ord
 - dbt source freshness check
 - dbt documentation and lineage graph
 
+## How to Run
+
+1. Generate data: `python src/generate_data.py`
+2. Load CSVs from `data/landing/` into Snowflake `RETAIL_DB.RAW`
+3. From `dbt/`: `dbt seed` → `dbt run` → `dbt snapshot` → `dbt test`
+4. Check freshness: `dbt source freshness`
+
 ## Tech Stack
 
 - Snowflake
 - dbt Core
 - Python
 - SQL
+- PySpark
 - Git and GitHub
 
 ## Project Architecture
@@ -251,7 +259,8 @@ These files preserve the generated dbt documentation and lineage metadata for of
 ```text
 retail-intelligence-pipeline/
 ├── data/
-│   └── landing/
+│   ├── landing/        # raw CSVs (5 datasets)
+│   └── bronze/         # Parquet output from Spark
 ├── dbt/
 │   ├── analyses/
 │   ├── macros/
@@ -266,6 +275,9 @@ retail-intelligence-pipeline/
 │   └── validation/
 ├── docs_backup/
 ├── src/
+├── spark/
+│   └── jobs/           # PySpark bronze ingestion
+├── incidents/
 └── requirements.txt
 ```
 
